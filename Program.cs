@@ -39,7 +39,7 @@ namespace quake_extract
                     Console.WriteLine($"path = {stringPath}");
 
                     fs.Read(size, 0, 4);
-                    int intsize = size[0] * (1 << 24) + size[1] * (1 << 16) + size[2] * (1 << 8) + size[3];
+                    int intsize = (size[0] << 24) + (size[1] << 16) + (size[2] << 8) + size[3];
                     Console.WriteLine($"size = {intsize}");
 
                     byte[] data = new byte[intsize];
